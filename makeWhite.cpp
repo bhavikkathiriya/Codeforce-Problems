@@ -12,6 +12,7 @@ int solution(int n,string s){
             j--;
         }
     }
+     return 0;
 }
 int main(){
     int t;

@@ -3,8 +3,7 @@ using namespace std;
 typedef long long ll;
 
 string solution(ll a,ll b,ll c){
-    int sum=a+b+c;
-    if(a>b || (a==b && sum%2==1)) return "First";
+    if((a+(c-1)/2+1>b+c/2)) return "First";
     return "Second";
 }
 int main(){
