@@ -3,16 +3,15 @@ using namespace std;
 
 string solution(int n,vector<int>& sol){
     vector<int>seat(n,0);
-    int j=sol[0];
-    seat[j-1]=1;
+    seat[sol[0]-1]=1;
     for(int i=1;i<n;i++){
-        j=sol[i];
+        int j=sol[i];
         if(j==1){
-            if(n>1 && seat[j]!=1)return "NO";
+            if(j<n && seat[j]!=1)return "NO";
         }else if(j==n){
-            if(seat[j-2]!=1) return "NO";
+            if(j-2>=0 && seat[j-2]!=1) return "NO";
         }else{
-            if(seat[j]!=1 || seat[j-2]!=1)return "NO";
+            if((j-2>=0 && seat[j-2]!=1) && (j<n && seat[j]!=1))return "NO";
         }
         seat[j-1]=1;
     }
